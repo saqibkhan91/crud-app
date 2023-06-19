@@ -14,9 +14,13 @@ use App\Http\Controllers\usersController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Route::view('/register', 'register');
 Route::post('/register', [usersController::class,'testRequest']);
+Route::get('/', [usersController::class,'list']);
+Route::get('/delete/{id}', [usersController::class,'delete']);
+Route::get('/edit/{id}', [usersController::class,'showData']);
+Route::post('/edit', [usersController::class,'editData']);

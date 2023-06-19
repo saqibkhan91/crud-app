@@ -15,4 +15,26 @@ class usersController extends Controller
         $Users->save();
         return redirect('/');
     }
+    function list(){
+        $data = users::all();
+        return view('list',['users'=>$data]);
+
+    }
+    function delete($id){
+        $data = users::find($id);
+        $data->delete();
+        return redirect('/');
+    }
+    function showData($id){
+        $data = users::find($id);
+        return view('edit',['data'=>$data]);
+    }
+    function  editData(request $req){
+        $data = users::find($req->id);
+        $data->name = $req->Username;
+        $data->email = $req->email;
+        $data->password = $req->password;
+        $data->save();
+        return redirect('/');
+    }
 }

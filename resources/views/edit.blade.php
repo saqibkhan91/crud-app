@@ -787,16 +787,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <body>
 <!-- main -->
 <div class="main-w3layouts wrapper">
-    <h1>SignUp Form</h1>
+    <h1>Update Form</h1>
     <div class="main-agileinfo">
         <div class="agileits-top">
-            <form action="" method="POST">
+            <form action="/edit"  method="POST">
                 @csrf
-                <input class="text" type="text" name="Username" placeholder="Username" required="">
-                <input class="text email" type="email" name="email" placeholder="Email" required="">
-                <input class="text" type="password" name="password" placeholder="Password" required="">
-                <input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="">
-
+                <input  type="hidden" name="id" value="{{$data['id']}}" >
+                <input class="text" type="text" name="Username" placeholder="Username" value="{{$data['name']}} ">
+                <input class="text email" type="email" name="email" placeholder="Email" value="{{$data['email']}}">
+                <input class="text" type="password" name="password" placeholder="Password" value="{{$data['password']}}">
                 <input type="submit" value="SIGNUP">
             </form>
             <p>Don't have an Account? <a href="register"> Login Now!</a></p>
@@ -811,3 +810,5 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- //main -->
 </body>
 </html>
+
+
